@@ -240,56 +240,56 @@ delta_t_range=18.9624680
 
 
 
-# 多项式拟合
-print position
-print velocity
-
-
-# 时间
-x=[1.172766900000000e+04,1.172766900000000e+04+4.167000000000000e+00,1.172766900000000e+04+4.167000000000000e+00*2,1.172766900000000e+04+4.167000000000000e+00*3,1.172766900000000e+04+4.167000000000000e+00*4]
-
-y1=np.reshape(position,(5,15))
-y=np.reshape(y1[0],(5,3))
-
-# 格式转化
-x=np.array(x)
-y=np.array(y)
-y=y.astype(np.float64)
-
-
-y1=[]
-y2=[]
-y3=[]
-
-# p=np.zeros((3,3))
-for i in range(5):
-    y1.append(y[i][0])
-    y2.append(y[i][1])
-    y3.append(y[i][2])
-
-print y1
-print y2
-print y3
-
-# 多项式拟合
-p1=np.poly1d(np.polyfit(x,y1,3))
-p2=np.poly1d(np.polyfit(x,y2,3))
-p3=np.poly1d(np.polyfit(x,y3,3))
-
-# 得到多项式系数
-#输出拟合的系数，顺序从高阶低阶
-print p1.coeffs
-print p2.coeffs
-print p3.coeffs
-print '输出拟合的系数，顺序从高阶低阶...'
-
-
-# 获取任一时刻卫星轨道矢量
-temp_t=1.172766900000000e+04+4.167000000000000e+00*2
-temp_x = p1.coeffs[0]*temp_t*temp_t*temp_t+p1.coeffs[1]*temp_t*temp_t+p1.coeffs[2]*temp_t+p1.coeffs[3]
-temp_y = p2.coeffs[0]*temp_t*temp_t*temp_t+p2.coeffs[1]*temp_t*temp_t+p2.coeffs[2]*temp_t+p2.coeffs[3]
-temp_z = p3.coeffs[0]*temp_t*temp_t*temp_t+p3.coeffs[1]*temp_t*temp_t+p3.coeffs[2]*temp_t+p3.coeffs[3]
-print temp_x
-print temp_y
-print temp_z
+# # 多项式拟合
+# print position
+# print velocity
+#
+#
+# # 时间
+# x=[1.172766900000000e+04,1.172766900000000e+04+4.167000000000000e+00,1.172766900000000e+04+4.167000000000000e+00*2,1.172766900000000e+04+4.167000000000000e+00*3,1.172766900000000e+04+4.167000000000000e+00*4]
+#
+# y1=np.reshape(position,(5,15))
+# y=np.reshape(y1[0],(5,3))
+#
+# # 格式转化
+# x=np.array(x)
+# y=np.array(y)
+# y=y.astype(np.float64)
+#
+#
+# y1=[]
+# y2=[]
+# y3=[]
+#
+# # p=np.zeros((3,3))
+# for i in range(5):
+#     y1.append(y[i][0])
+#     y2.append(y[i][1])
+#     y3.append(y[i][2])
+#
+# print y1
+# print y2
+# print y3
+#
+# # 多项式拟合
+# p1=np.poly1d(np.polyfit(x,y1,3))
+# p2=np.poly1d(np.polyfit(x,y2,3))
+# p3=np.poly1d(np.polyfit(x,y3,3))
+#
+# # 得到多项式系数
+# #输出拟合的系数，顺序从高阶低阶
+# print p1.coeffs
+# print p2.coeffs
+# print p3.coeffs
+# print '输出拟合的系数，顺序从高阶低阶...'
+#
+#
+# # 获取任一时刻卫星轨道矢量
+# temp_t=1.172766900000000e+04+4.167000000000000e+00*2
+# temp_x = p1.coeffs[0]*temp_t*temp_t*temp_t+p1.coeffs[1]*temp_t*temp_t+p1.coeffs[2]*temp_t+p1.coeffs[3]
+# temp_y = p2.coeffs[0]*temp_t*temp_t*temp_t+p2.coeffs[1]*temp_t*temp_t+p2.coeffs[2]*temp_t+p2.coeffs[3]
+# temp_z = p3.coeffs[0]*temp_t*temp_t*temp_t+p3.coeffs[1]*temp_t*temp_t+p3.coeffs[2]*temp_t+p3.coeffs[3]
+# print temp_x
+# print temp_y
+# print temp_z
 

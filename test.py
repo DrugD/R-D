@@ -47,7 +47,7 @@ class GRID:
             im_bands, (im_height, im_width) = 1,im_data.shape
 
         #创建文件
-        driver = gdal.GetDriverByName("GTiff")            #数据类型必须有，因为要计算需要多大内存空间
+        driver = gdal.GetDriverByName("HFA")            #数据类型必须有，因为要计算需要多大内存空间
         dataset = driver.Create(filename, im_width, im_height, im_bands, datatype)
 
         dataset.SetGeoTransform(im_geotrans)              #写入仿射变换参数
